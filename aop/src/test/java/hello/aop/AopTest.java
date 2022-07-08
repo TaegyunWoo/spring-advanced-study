@@ -3,7 +3,6 @@ package hello.aop;
 import hello.aop.order.OrderRepository;
 import hello.aop.order.OrderService;
 import hello.aop.order.aop.AspectV1;
-import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.aop.support.AopUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +11,7 @@ import org.springframework.context.annotation.Import;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-@Slf4j
+@Import(AspectV1.class)
 @SpringBootTest
 public class AopTest {
 
@@ -24,8 +23,8 @@ public class AopTest {
 
   @Test
   void aopInfo() {
-    log.info("isAopProxy, orderService={}", AopUtils.isAopProxy(orderService));
-    log.info("isAopProxy, orderRepository={}", AopUtils.isAopProxy(orderRepository));
+    System.out.println("isAopProxy, orderService=" + AopUtils.isAopProxy(orderService));
+    System.out.println("isAopProxy, orderRepository=" + AopUtils.isAopProxy(orderRepository));
   }
 
   @Test
