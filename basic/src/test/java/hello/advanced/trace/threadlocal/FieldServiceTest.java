@@ -27,11 +27,11 @@ public class FieldServiceTest {
 
     //쓰레드 A 생성
     Thread threadA = new Thread(userA);
-    threadA.setName("thread-A");
+    threadA.setName("Thread-A");
 
     //쓰레드 B 생성
     Thread threadB = new Thread(userB);
-    threadA.setName("thread-B");
+    threadB.setName("Thread-B");
 
     threadA.start(); //쓰레드 A 실행
     sleep(2000); //동시성 문제 발생 X (메인쓰레드가 2초 대기)
